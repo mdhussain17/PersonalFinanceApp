@@ -1,0 +1,26 @@
+# --- GLOBAL ---
+.DS_Store
+*.log
+
+# --- BACKEND (Java/Eclipse) ---
+backend/target/
+backend/.settings/
+backend/.classpath
+backend/.project
+backend/.mvn/
+backend/bin/
+# HIDE API KEYS & SECRETS
+backend/src/main/resources/application.properties
+backend/src/main/resources/application-dev.properties
+backend/src/main/resources/application-prod.properties
+
+# --- FRONTEND (Node/React) ---
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*

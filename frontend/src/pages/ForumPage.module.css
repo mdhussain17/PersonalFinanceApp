@@ -1,0 +1,326 @@
+.container {
+    min-height: 100vh;
+    padding: 8rem 5% 4rem;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000000 70%);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--primary-color), #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.createButton {
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), #00d4ff);
+    border: none;
+    border-radius: 25px;
+    color: #0a0a0a;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.createButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(137, 250, 255, 0.4);
+}
+
+.postsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.postCard {
+    background: rgba(137, 250, 255, 0.05);
+    border: 1px solid rgba(137, 250, 255, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.postCard:hover {
+    background: rgba(137, 250, 255, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(137, 250, 255, 0.2);
+}
+
+.postHeader {
+    margin-bottom: 1rem;
+}
+
+.postTitle {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.postMeta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.postPreview {
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.postContent {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.postFooter {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(137, 250, 255, 0.1);
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.deleteBtn {
+    margin-left: auto;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 77, 77, 0.1);
+    border: 1px solid rgba(255, 77, 77, 0.3);
+    border-radius: 8px;
+    color: #FF4D4D;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.deleteBtn:hover {
+    background: rgba(255, 77, 77, 0.2);
+    transform: scale(1.05);
+}
+
+.loading, .error, .noPosts {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+}
+
+.loading {
+    color: var(--primary-color);
+}
+
+.error, .success {
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease;
+}
+
+.error {
+    background: rgba(255, 77, 77, 0.1);
+    border: 1px solid rgba(255, 77, 77, 0.3);
+    color: #FF4D4D;
+}
+
+.success {
+    background: rgba(0, 196, 159, 0.1);
+    border: 1px solid rgba(0, 196, 159, 0.3);
+    color: #00C49F;
+}
+
+.closeAlert {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.closeAlert:hover {
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.noPosts {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal {
+    background: #1a1a2e;
+    border: 1px solid rgba(137, 250, 255, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.modalTitle {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.input, .textarea {
+    padding: 0.75rem;
+    background: rgba(137, 250, 255, 0.05);
+    border: 1px solid rgba(137, 250, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.input:focus, .textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(137, 250, 255, 0.1);
+}
+
+.textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.submitButton {
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), #00d4ff);
+    border: none;
+    border-radius: 25px;
+    color: #0a0a0a;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(137, 250, 255, 0.4);
+}
+
+.submitButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

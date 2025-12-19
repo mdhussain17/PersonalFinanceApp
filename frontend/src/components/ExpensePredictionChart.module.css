@@ -1,0 +1,403 @@
+/* Container */
+.container {
+    background: linear-gradient(135deg, rgba(0, 196, 159, 0.08), rgba(137, 250, 255, 0.05));
+    border: 1px solid rgba(137, 250, 255, 0.3);
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 196, 159, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), #00D4AA, var(--primary-color));
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+}
+
+/* Header */
+.header {
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-color), #00D4AA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* AI Message */
+.aiMessage {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem 1.75rem;
+    background: linear-gradient(135deg, rgba(0, 196, 159, 0.15), rgba(0, 196, 159, 0.08));
+    border: 1px solid rgba(0, 196, 159, 0.4);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    animation: slideIn 0.5s ease;
+    box-shadow: 0 4px 16px rgba(0, 196, 159, 0.15);
+    transition: all 0.3s ease;
+}
+
+.aiMessage:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 196, 159, 0.25);
+    border-color: rgba(0, 196, 159, 0.6);
+}
+
+.aiIcon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.aiMessage p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+/* Chart Container */
+.chartContainer {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+}
+
+.chart {
+    display: flex;
+    gap: 1rem;
+    min-height: 300px;
+    position: relative;
+}
+
+/* Y-Axis */
+.yAxis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 1rem;
+    border-right: 1px solid rgba(137, 250, 255, 0.2);
+    min-width: 60px;
+}
+
+.yLabel {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: right;
+}
+
+/* Bars */
+.barsContainer {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-end;
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.barWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 60px;
+}
+
+.barContainer {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.barHistorical, .barPredicted {
+    width: 100%;
+    max-width: 70px;
+    border-radius: 12px 12px 0 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 0.5rem;
+    animation: growUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.barHistorical {
+    background: linear-gradient(180deg, #00D4AA 0%, #00C49F 50%, #00A382 100%);
+    box-shadow: 0 0 30px rgba(0, 196, 159, 0.5), 
+                0 4px 20px rgba(0, 196, 159, 0.3);
+    animation: growUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+               pulse 2s ease-in-out infinite;
+}
+
+.barPredicted {
+    background: linear-gradient(180deg, #FFD93D 0%, #FFB84D 50%, #FF8C42 100%);
+    box-shadow: 0 0 30px rgba(255, 184, 77, 0.6), 
+                0 4px 20px rgba(255, 184, 77, 0.4);
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    animation: growUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s backwards, 
+               glow 2s ease-in-out infinite;
+}
+
+.barHistorical:hover {
+    transform: translateY(-8px) scale(1.05);
+    filter: brightness(1.3);
+    box-shadow: 0 0 40px rgba(0, 196, 159, 0.7), 
+                0 8px 30px rgba(0, 196, 159, 0.5);
+}
+
+.barPredicted:hover {
+    transform: translateY(-8px) scale(1.05);
+    filter: brightness(1.3);
+    box-shadow: 0 0 40px rgba(255, 184, 77, 0.8), 
+                0 8px 30px rgba(255, 184, 77, 0.6);
+}
+
+.barValue {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.barLabel {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Legend */
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.legendColorHistorical, .legendColorPredicted {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.legendColorHistorical {
+    background: linear-gradient(135deg, #00C49F, #00A382);
+}
+
+.legendColorPredicted {
+    background: linear-gradient(135deg, #FFB84D, #FF8C42);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+
+/* Stats Grid */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.statCard {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+    border: 1px solid rgba(137, 250, 255, 0.3);
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation: fadeIn 0.6s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.statCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.statCard:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 32px rgba(0, 196, 159, 0.3);
+}
+
+.statCard:hover::before {
+    transform: translateX(100%);
+}
+
+.statLabel {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Loading & Error States */
+.loading, .error {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.1rem;
+}
+
+.loading {
+    color: var(--primary-color);
+}
+
+.error {
+    color: #FF4D4D;
+    background: rgba(255, 77, 77, 0.1);
+    border: 1px solid rgba(255, 77, 77, 0.3);
+    border-radius: 12px;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes growUp {
+    from {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 30px rgba(0, 196, 159, 0.5), 
+                    0 4px 20px rgba(0, 196, 159, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(0, 196, 159, 0.7), 
+                    0 6px 25px rgba(0, 196, 159, 0.5);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 30px rgba(255, 184, 77, 0.6), 
+                    0 4px 20px rgba(255, 184, 77, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 45px rgba(255, 184, 77, 0.8), 
+                    0 6px 30px rgba(255, 184, 77, 0.6);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    .chartContainer {
+        padding: 1rem 0.5rem;
+    }
+
+    .barsContainer {
+        gap: 1rem;
+    }
+
+    .barWrapper {
+        min-width: 50px;
+    }
+
+    .legend {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+}

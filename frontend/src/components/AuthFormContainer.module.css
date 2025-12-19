@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.formWrapper {
+  padding: 2.5rem 3rem;
+  background-color: var(--secondary-color);
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+}
+.title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  color: var(--primary-color);
+}

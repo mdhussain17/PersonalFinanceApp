@@ -1,0 +1,42 @@
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: #000;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+.button {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: var(--primary-color);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.message {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.link {
+  display: block;
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--primary-color);
+}

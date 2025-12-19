@@ -1,0 +1,209 @@
+.container {
+    min-height: 100vh;
+    padding: 8rem 5% 4rem;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000000 70%);
+}
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(137, 250, 255, 0.1);
+    border: 1px solid rgba(137, 250, 255, 0.3);
+    border-radius: 20px;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.backButton:hover {
+    background: rgba(137, 250, 255, 0.2);
+    transform: translateX(-5px);
+}
+
+.postCard {
+    background: rgba(137, 250, 255, 0.05);
+    border: 1px solid rgba(137, 250, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.postHeader {
+    margin-bottom: 1.5rem;
+}
+
+.postTitle {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.postMeta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.postContent {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    white-space: pre-wrap;
+}
+
+.postActions {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(137, 250, 255, 0.1);
+}
+
+.likeButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(137, 250, 255, 0.1);
+    border: 1px solid rgba(137, 250, 255, 0.3);
+    border-radius: 25px;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.likeButton:hover {
+    background: rgba(137, 250, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.likeButton.liked {
+    background: linear-gradient(135deg, var(--primary-color), #00d4ff);
+    color: #0a0a0a;
+    border-color: transparent;
+}
+
+.commentsSection {
+    background: rgba(137, 250, 255, 0.05);
+    border: 1px solid rgba(137, 250, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.sectionTitle {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.commentsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.commentCard {
+    background: rgba(137, 250, 255, 0.05);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.commentHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.commentAuthor {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.commentTime {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+}
+
+.commentContent {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.noComments {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 2rem;
+}
+
+.commentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(137, 250, 255, 0.1);
+}
+
+.textarea {
+    padding: 1rem;
+    background: rgba(137, 250, 255, 0.05);
+    border: 1px solid rgba(137, 250, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    font-family: inherit;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(137, 250, 255, 0.1);
+}
+
+.submitButton {
+    align-self: flex-end;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), #00d4ff);
+    border: none;
+    border-radius: 25px;
+    color: #0a0a0a;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(137, 250, 255, 0.4);
+}
+
+.submitButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+}
+
+.loading {
+    color: var(--primary-color);
+}
+
+.error {
+    color: #ff3b30;
+}
